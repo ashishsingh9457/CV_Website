@@ -440,7 +440,7 @@ main {
 
 .social-item .social-link {
   color: var(--light-gray-70);
-  font-size: 18px;
+  font-size: 24px;
 }
 
 
@@ -1830,6 +1830,7 @@ textarea.form-input::-webkit-resizer { display: none; }
     height: 100%;
     margin-bottom: 0;
     padding-top: 60px;
+    min-width: 320px;
     z-index: 1;
   }
 
@@ -1855,8 +1856,6 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .contact-info :is(.contact-link) {
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 
   .contact-info :is(.contact-link, time, address) {
@@ -1879,4 +1878,69 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .timeline-text { max-width: 700px; }
 
+}
+
+
+
+/*-----------------------------------*\
+  #OPEN TO OPPORTUNITIES BADGE
+\*-----------------------------------*/
+
+.open-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--light-gray);
+  background: var(--onyx);
+  font-size: var(--fs-8);
+  font-weight: var(--fw-400);
+  padding: 5px 12px;
+  border-radius: 12px;
+  width: max-content;
+  margin: 8px auto 0;
+}
+
+.open-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: hsl(140, 70%, 50%);
+  flex-shrink: 0;
+}
+
+
+
+/*-----------------------------------*\
+  #ACHIEVEMENT ICONS
+\*-----------------------------------*/
+
+.service-icon-box ion-icon {
+  display: block;
+  margin: auto;
+  font-size: 32px;
+  color: var(--orange-yellow-crayola);
+}
+
+
+
+/*-----------------------------------*\
+  #SKILL TAGS
+\*-----------------------------------*/
+
+.skill-group:not(:last-child) { margin-bottom: 18px; }
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.tag {
+  color: var(--white-2);
+  background: var(--onyx);
+  font-size: var(--fs-7);
+  font-weight: var(--fw-400);
+  padding: 5px 12px;
+  border-radius: 8px;
 }
