@@ -32,9 +32,40 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ashish Kumar Singh",
+    "url": "https://ashishkumarsingh.in/",
+    "image": "https://ashishkumarsingh.in/assets/images/my-avatar.jpg",
+    "jobTitle": "Software Developer",
+    "worksFor": { "@type": "Organization", "name": "Personify Health" },
+    "address": { "@type": "PostalAddress", "addressLocality": "Noida", "addressCountry": "IN" },
+    "email": "mailto:ashishksingh9457@gmail.com",
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Motilal Nehru National Institute of Technology Allahabad" },
+    "sameAs": [
+      "https://github.com/ashishsingh9457",
+      "https://www.linkedin.com/in/ashishkumarsinghengineer/",
+      "https://twitter.com/AshishK28501737",
+      "https://www.instagram.com/_ashish_ksingh",
+      "https://leetcode.com/u/sojaa/"
+    ]
+  }
+  </script>
 </head>
 
 <body>
+
+  <!-- scroll progress bar -->
+  <div class="scroll-progress" data-progress></div>
+
+  <!-- theme toggle -->
+  <button class="theme-toggle" data-theme-toggle aria-label="Toggle light theme" title="Toggle theme">
+    <ion-icon name="sunny-outline"></ion-icon>
+  </button>
 
   <!--
     - #MAIN
@@ -57,7 +88,7 @@
         <div class="info-content">
           <h1 class="name" title="Ashish Kumar Singh">Ashish Kumar Singh</h1>
 
-          <p class="title">Software Developer</p>
+          <p class="title" data-typing>Software Developer</p>
 
           <p class="open-badge">
             <span class="open-dot"></span>
@@ -89,6 +120,10 @@
               <p class="contact-title">Email</p>
 
               <a href="mailto:ashishksingh9457@gmail.com" class="contact-link">ashishksingh9457@gmail.com</a>
+
+              <button class="copy-btn" data-copy-email="ashishksingh9457@gmail.com" aria-label="Copy email address" title="Copy email">
+                <ion-icon name="copy-outline"></ion-icon>
+              </button>
             </div>
 
           </li>
@@ -241,13 +276,11 @@
           <p>
             I'm a Software Developer at Personify Health (Cloudangles), Noida, where I build backend microservices
             and data pipelines in Java, Kotlin and Python — Spring Boot, Spring WebFlux, Apache Airflow, Kafka and AWS —
-            serving 2M+ daily requests and processing 5M+ records a day across distributed systems.
+            serving 20M+ daily requests and processing 50M+ records a day across distributed systems.
           </p>
 
           <p>
-            I enjoy turning complex problems into scalable, reliable systems. Outside of work I sharpen my
-            problem-solving with 900+ DSA problems on LeetCode and GeeksforGeeks, and build side projects
-            across web development and machine learning.
+            Off the clock, I'm usually at the gym, out on a trek, catching a badminton match, or exploring new music.
           </p>
         </section>
 
@@ -376,6 +409,45 @@
                 </p>
               </div>
 
+            </li>
+
+          </ul>
+
+        </section>
+
+
+        <!--
+          - live coding stats
+        -->
+
+        <section class="stats">
+
+          <h3 class="h3 service-title">Live Coding Stats</h3>
+
+          <ul class="stats-list">
+
+            <li class="stats-item">
+              <a href="https://github.com/ashishsingh9457" target="_blank" rel="noopener noreferrer">
+                <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=ashishsingh9457&theme=github_dark" alt="GitHub stats for Ashish Kumar Singh" loading="lazy">
+              </a>
+            </li>
+
+            <li class="stats-item">
+              <a href="https://github.com/ashishsingh9457" target="_blank" rel="noopener noreferrer">
+                <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=ashishsingh9457&theme=github_dark" alt="Most used languages on GitHub" loading="lazy">
+              </a>
+            </li>
+
+            <li class="stats-item">
+              <a href="https://github.com/ashishsingh9457" target="_blank" rel="noopener noreferrer">
+                <img src="https://streak-stats.demolab.com?user=ashishsingh9457&hide_border=true&background=202022&ring=FFD47A&fire=FFD47A&currStreakLabel=FFD47A&currStreakNum=FFFFFF&sideNums=FFFFFF&sideLabels=D6D6D6&dates=9A9A9A" alt="GitHub contribution streak" loading="lazy">
+              </a>
+            </li>
+
+            <li class="stats-item">
+              <a href="https://leetcode.com/u/sojaa/" target="_blank" rel="noopener noreferrer">
+                <img src="https://leetcard.jacoblin.cool/sojaa?theme=dark&font=Poppins&ext=activity&border=0&radius=12" alt="LeetCode stats for Ashish Kumar Singh" loading="lazy">
+              </a>
             </li>
 
           </ul>
@@ -709,21 +781,21 @@
             <li class="skill-group">
               <h5 class="h5">Backend</h5>
               <div class="tag-list">
-                <span class="tag">Java</span>
-                <span class="tag">Kotlin</span>
-                <span class="tag">Python</span>
-                <span class="tag">Spring Boot</span>
-                <span class="tag">Spring WebFlux</span>
-                <span class="tag">Spring Data JPA</span>
-                <span class="tag">Hibernate</span>
+                <span class="tag"><img class="tag-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="" loading="lazy">Java</span>
+                <span class="tag"><img class="tag-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" alt="" loading="lazy">Kotlin</span>
+                <span class="tag"><img class="tag-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="" loading="lazy">Python</span>
+                <span class="tag"><img class="tag-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="" loading="lazy">Spring Boot</span>
+                <span class="tag"><img class="tag-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="" loading="lazy">Spring WebFlux</span>
+                <span class="tag"><img class="tag-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hibernate/hibernate-original.svg" alt="" loading="lazy">Spring Data JPA</span>
+                <span class="tag"><img class="tag-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hibernate/hibernate-original.svg" alt="" loading="lazy">Hibernate</span>
               </div>
             </li>
 
             <li class="skill-group">
               <h5 class="h5">Data Engineering</h5>
               <div class="tag-list">
-                <span class="tag">Apache Airflow</span>
-                <span class="tag">Apache Kafka</span>
+                <span class="tag"><img class="tag-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apacheairflow/apacheairflow-original.svg" alt="" loading="lazy">Apache Airflow</span>
+                <span class="tag"><img class="tag-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachekafka/apachekafka-original.svg" alt="" loading="lazy">Apache Kafka</span>
                 <span class="tag">ETL Pipelines</span>
                 <span class="tag">REST APIs</span>
                 <span class="tag">Microservices</span>
@@ -733,25 +805,25 @@
             <li class="skill-group">
               <h5 class="h5">Cloud &amp; DevOps</h5>
               <div class="tag-list">
-                <span class="tag">AWS</span>
-                <span class="tag">Kubernetes (EKS)</span>
-                <span class="tag">Docker</span>
-                <span class="tag">Redis</span>
-                <span class="tag">GitLab CI/CD</span>
-                <span class="tag">Linux</span>
+                <span class="tag"><img class="tag-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="" loading="lazy">AWS</span>
+                <span class="tag"><img class="tag-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="" loading="lazy">Kubernetes (EKS)</span>
+                <span class="tag"><img class="tag-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="" loading="lazy">Docker</span>
+                <span class="tag"><img class="tag-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" alt="" loading="lazy">Redis</span>
+                <span class="tag"><img class="tag-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg" alt="" loading="lazy">GitLab CI/CD</span>
+                <span class="tag"><img class="tag-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="" loading="lazy">Linux</span>
               </div>
             </li>
 
             <li class="skill-group">
               <h5 class="h5">Databases &amp; Tools</h5>
               <div class="tag-list">
-                <span class="tag">PostgreSQL</span>
+                <span class="tag"><img class="tag-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="" loading="lazy">PostgreSQL</span>
                 <span class="tag">Amazon Aurora</span>
                 <span class="tag">Snowflake</span>
-                <span class="tag">Git</span>
-                <span class="tag">Maven</span>
-                <span class="tag">Gradle</span>
-                <span class="tag">Jira</span>
+                <span class="tag"><img class="tag-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="" loading="lazy">Git</span>
+                <span class="tag"><img class="tag-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/maven/maven-original.svg" alt="" loading="lazy">Maven</span>
+                <span class="tag"><img class="tag-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gradle/gradle-original.svg" alt="" loading="lazy">Gradle</span>
+                <span class="tag"><img class="tag-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" alt="" loading="lazy">Jira</span>
                 <span class="tag">New Relic APM</span>
               </div>
             </li>
@@ -1281,12 +1353,23 @@
           <h2 class="h2 article-title">Contact</h2>
         </header>
 
-        <section class="mapbox" data-mapbox>
-          <figure>
-            <iframe
-              src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Noida%2C%20Uttar%20Pradesh%2C%20India&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-              width="400" height="300" loading="lazy"></iframe>
-          </figure>
+        <section class="location-card">
+
+          <div class="icon-box">
+            <ion-icon name="location-outline"></ion-icon>
+          </div>
+
+          <div class="location-content">
+            <h3 class="h3">Noida, India</h3>
+
+            <p class="location-text">Based in Noida — open to remote and onsite opportunities.</p>
+
+            <a href="https://maps.google.com/?q=Noida,+Uttar+Pradesh,+India" target="_blank" rel="noopener noreferrer" class="location-link">
+              View on Google Maps
+              <ion-icon name="open-outline"></ion-icon>
+            </a>
+          </div>
+
         </section>
 
         <section class="contact-form">
@@ -1330,6 +1413,9 @@
   <!--
     - ionicon link
   -->
+  <!-- toast notification -->
+  <div class="toast" data-toast></div>
+
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
