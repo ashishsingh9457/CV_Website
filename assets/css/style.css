@@ -469,11 +469,15 @@ main {
 
 .navbar-list {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-wrap: nowrap;
+  justify-content: safe center;
   align-items: center;
   padding: 0 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
 }
+
+.navbar-list::-webkit-scrollbar { display: none; }
 
 .navbar-link {
   color: var(--light-gray);
@@ -1952,9 +1956,17 @@ textarea.form-input::-webkit-resizer { display: none; }
 \*-----------------------------------*/
 
 .resume-embed {
+  display: block;
   background: var(--onyx);
   border-radius: 12px;
   overflow: hidden;
+}
+
+.resume-hint {
+  color: var(--light-gray-70);
+  font-size: var(--fs-7);
+  margin-top: 12px;
+  text-align: center;
 }
 
 .resume-embed img {
