@@ -300,3 +300,114 @@ if (themeToggle) {
   });
 
 }
+
+
+
+// github contribution calendar with per-day tooltips
+const calEl = document.querySelector("[data-github-calendar]");
+
+if (calEl) {
+
+  const calUser = calEl.dataset.githubCalendar;
+  const tip = document.createElement("div");
+  tip.className = "contrib-tip";
+
+  fetch("https://github-contributions-api.jogruber.de/v4/" + calUser + "?y=last")
+    .then(function (res) { return res.json(); })
+    .then(function (data) {
+
+      const days = data.contributions || [];
+      if (!days.length) throw new Error("empty");
+
+      // group days into week columns (data starts on a Sunday)
+      const weeks = [];
+      for (let i = 0; i < days.length; i += 7) weeks.push(days.slice(i, i + 7));
+
+      // month labels row
+      const monthsRow = document.createElement("div");
+      monthsRow.className = "contrib-months";
+      const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      let prevMonth = -1;
+      for (let w = 0; w < weeks.length; w++) {
+        const m = new Date(weeks[w][0].date + "T00:00:00").getMonth();
+        if (m !== prevMonth) {
+          const lbl = document.createElement("span");
+          lbl.className = "contrib-month";
+          lbl.textContent = monthNames[m];
+          lbl.style.left = (w * 14) + "px";
+          monthsRow.appendChild(lbl);
+          prevMonth = m;
+        }
+      }
+
+      // day-of-week labels gutter (Mon/Wed/Fri)
+      const gutter = document.createElement("div");
+      gutter.className = "contrib-day-labels";
+      const dayNames = ["", "Mon", "", "Wed", "", "Fri", ""];
+      for (let r = 0; r < 7; r++) {
+        const s = document.createElement("span");
+        s.textContent = dayNames[r];
+        gutter.appendChild(s);
+      }
+
+      // grid
+      const grid = document.createElement("div");
+      grid.className = "contrib-grid";
+      for (let w = 0; w < weeks.length; w++) {
+        const col = document.createElement("div");
+        col.className = "contrib-week";
+        for (let r = 0; r < weeks[w].length; r++) {
+          const d = weeks[w][r];
+          const cell = document.createElement("div");
+          cell.className = "contrib-day";
+          cell.setAttribute("data-level", d.level);
+          cell.setAttribute("data-count", d.count);
+          cell.setAttribute("data-date", d.date);
+          col.appendChild(cell);
+        }
+        grid.appendChild(col);
+      }
+
+      const body = document.createElement("div");
+      body.className = "contrib-body";
+      body.appendChild(gutter);
+      body.appendChild(grid);
+
+      const totalCount = (data.total && data.total.lastYear) || days.reduce(function (a, c) { return a + c.count; }, 0);
+      const total = document.createElement("p");
+      total.className = "contrib-total";
+      total.textContent = totalCount + " contributions in the last year";
+
+      calEl.innerHTML = "";
+      calEl.appendChild(total);
+      calEl.appendChild(monthsRow);
+      calEl.appendChild(body);
+      calEl.appendChild(tip);
+
+    })
+    .catch(function () {
+      calEl.innerHTML = '<p class="contrib-loading">Could not load contributions — <a href="https://github.com/' + calUser + '" target="_blank" rel="noopener noreferrer">view on GitHub</a></p>';
+    });
+
+  // tooltip hover
+  calEl.addEventListener("mouseover", function (e) {
+    const cell = e.target.closest(".contrib-day");
+    if (!cell) return;
+    const count = parseInt(cell.dataset.count, 10);
+    const date = new Date(cell.dataset.date + "T00:00:00");
+    tip.textContent = (count === 0 ? "No contributions" : count + " contribution" + (count === 1 ? "" : "s"))
+      + " on " + date.toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+    tip.style.opacity = "1";
+    const cRect = calEl.getBoundingClientRect();
+    const dRect = cell.getBoundingClientRect();
+    const tipHalf = tip.offsetWidth / 2;
+    const x = dRect.left - cRect.left + dRect.width / 2 + calEl.scrollLeft;
+    tip.style.left = Math.max(tipHalf, Math.min(x, calEl.scrollWidth - tipHalf)) + "px";
+    tip.style.top = (dRect.top - cRect.top - 6) + "px";
+  });
+
+  calEl.addEventListener("mouseout", function (e) {
+    if (e.target.closest(".contrib-day")) tip.style.opacity = "0";
+  });
+
+}
