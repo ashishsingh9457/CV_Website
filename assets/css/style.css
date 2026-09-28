@@ -1944,3 +1944,22 @@ textarea.form-input::-webkit-resizer { display: none; }
   padding: 5px 12px;
   border-radius: 8px;
 }
+
+
+
+/*-----------------------------------*\
+  #RESUME EMBED
+\*-----------------------------------*/
+
+.resume-embed {
+  background: var(--onyx);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.resume-embed iframe {
+  width: 100%;
+  height: 75vh;
+  min-height: 500px;
+  border: none;
+}
