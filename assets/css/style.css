@@ -1992,6 +1992,11 @@ textarea.form-input::-webkit-resizer { display: none; }
   padding: 0;
 }
 
+.stats-item a {
+  display: block;
+  width: 100%;
+}
+
 .stats-item img {
   width: 100%;
   border-radius: 12px;
@@ -1999,12 +2004,33 @@ textarea.form-input::-webkit-resizer { display: none; }
   transition: var(--transition-1);
 }
 
+.stats-item:not(.stats-item-wide) img {
+  aspect-ratio: 2 / 1;
+  object-fit: contain;
+  background: hsla(0, 0%, 7%, 0.35);
+}
+
+html.light-theme .stats-item:not(.stats-item-wide) img {
+  background: hsla(0, 0%, 0%, 0.04);
+}
+
+.contrib-chart {
+  padding: 10px;
+  box-sizing: border-box;
+  filter: invert(0.9) hue-rotate(180deg);
+}
+
+html.light-theme .contrib-chart {
+  filter: none;
+  background: #fff;
+}
+
 .stats-item a:hover img { transform: scale(1.02); }
 
 @media (min-width: 768px) {
   .stats-list { grid-template-columns: 1fr 1fr; }
   .stats-item-wide { grid-column: 1 / -1; }
-  .stats-item-wide img { max-width: 550px; margin: auto; }
+  .stats-item-wide img { max-width: 700px; margin: auto; }
 }
 
 
